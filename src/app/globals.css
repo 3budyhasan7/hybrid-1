@@ -1,0 +1,11 @@
+/*
+ * Tailwind CSS is set up for new components.
+ * - Preflight (Tailwind's reset) is NOT imported, so the approved design in site.css renders exactly as published.
+ * - Automatic class scanning is turned off so Tailwind never generates utilities from the existing
+ *   markup (classes like "block" or "absolute" in the design would otherwise be restyled).
+ * - Put new Tailwind-styled components in src/components/tw — only that folder is scanned.
+ */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "../components/tw";

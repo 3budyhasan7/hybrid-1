@@ -1,0 +1,45 @@
+/* Arabic / right-to-left adjustments on top of the approved design (site.css). */
+
+[dir="rtl"] {
+  /* Latin text keeps Archivo; Arabic characters fall back to Cairo. */
+  --disp: "Archivo Variable", "Cairo Variable", "Arial Narrow", Arial, sans-serif;
+  --mono: "JetBrains Mono", "Cairo Variable", ui-monospace, Menlo, monospace;
+}
+
+/* Arabic letters must join: no tracking, and no synthetic italic on the Arabic display font. */
+[dir="rtl"] * {
+  letter-spacing: 0 !important;
+}
+[dir="rtl"] .disp {
+  font-style: normal;
+}
+
+/* Arabic display type needs more room between lines than the tight Latin setting. */
+[dir="rtl"] .disp {
+  line-height: 1.08 !important;
+  word-spacing: normal;
+}
+
+/* Phone numbers and emails are always typed left-to-right. */
+[dir="rtl"] .field .row,
+[dir="rtl"] input[type="email"],
+[dir="rtl"] input[inputmode="tel"],
+[dir="rtl"] #j-contact {
+  direction: ltr;
+}
+[dir="rtl"] input[type="email"],
+[dir="rtl"] #j-contact {
+  text-align: right;
+}
+
+/* Button arrows point the reading direction. */
+[dir="rtl"] .arrow {
+  transform: scaleX(-1);
+}
+
+/* Join page: the slanted photo moves to the left so the Arabic text (now on the right) stays on black. */
+[dir="rtl"] [data-page="join"] .hero > .bg {
+  left: 0 !important;
+  right: auto !important;
+  clip-path: polygon(0 0, 58% 0, 100% 100%, 0 100%) !important;
+}
